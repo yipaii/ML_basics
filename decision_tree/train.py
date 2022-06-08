@@ -16,8 +16,9 @@ def train_dt(file_path):
             data.append((x, y))
     dim = len(data[0][0])
     dt = model.DT(dim, len(classes))
-    gd = dt.cal_information_gain(data)
-    print(dt.select_feature(gd))
+    gd, _, _ = dt.cal_information_gain(data)
+    # print(dt.select_feature(gd))
+    root = dt.ID3(samples=data)
 
 
 if __name__ == '__main__':
